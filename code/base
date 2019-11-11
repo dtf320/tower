@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<HTML>
+<style type="text/css">
+	.alignleft {
+		clear: both;
+		display: block;
+		margin: left;
+	}
+
+	.alignright {
+		display: inline;
+		float: right;
+	}
+
+	.aligncenter {
+		clear: both;
+		display: block;
+		margin: auto;
+	}
+
+	body {
+		font-size: 13pt;
+	}
+
+	.divleft {
+		float: left;
+		width: 512px;
+		border: 0px solid rgb(0, 0, 0)
+	}
+
+	.divright {
+		float: right;
+		position: relative;
+		width: 50%;
+		border: 0px solid rgb(0, 0, 0)
+	}
+
+	.div-body {
+		margin: 0 auto;
+		width: 80%;
+		border: 0px solid rgb(255, 255, 255)
+	}
+
+	.clear {
+		clear: both
+	}
+</style>
+
+<body>
+	<div class="div-body">
+		<div class="divleft"> </div>
+		<table border="0" id="table1" width=100%>
+			<tr>
+				<td width="320">
+					<p align="center">
+						<img border="0" text-align:center src="images/bg.jpg" class="alignleft" width=100%>
+					</p>
+				</td>
+				<td width="128"></td>
+				<td>
+					<p style="font-size:13pt">
+						昨夜西风凋碧树</br>
+						独上高楼</br>
+						望尽天涯路</br>
+					</p>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="div-body">
+        #{:replace_this_way:}!
+		<p>Last update: #{:last_update_time:}!</p>
+	</div>
+</body>
+
+</html>
