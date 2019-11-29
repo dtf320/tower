@@ -1,6 +1,7 @@
 import re
 import time
 import os
+from utils import *
 
 
 class Paper:
@@ -35,6 +36,8 @@ class Paper:
         pdfs = os.listdir(pdf_dir)
         pdfs = [_ for _ in pdfs if _.endswith('.pdf')]
         papers = [Paper.pdf_name_convert_obj(p) for p in pdfs]
+        sort_idx = sort_by_date([_.year for _ in papers])
+        papers = [papers[k] for k in sort_idx]
         papers = [p.set_category(category) for p in papers]
         papers = [p.set_pdf('{}/{}'.format(category,p.pdf)) for p in papers]
         return papers
@@ -76,7 +79,10 @@ class PaperHolder:
         self.sections = []
 
     def make(self, html_name='index'):
-        for c in os.listdir(self.paper_dir):
+        dir_list = os.listdir(self.paper_dir)
+        sort_idx = sort_by_index(dir_list)
+        dir_list = [dir_list[k] for k in sort_idx]
+        for c in dir_list:
             cdir = os.path.join(self.paper_dir,c)
             if not os.path.isdir(cdir):
                 continue
